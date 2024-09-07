@@ -1,0 +1,15 @@
+%{
+#include <stdio.h>
+%}
+
+/* Define the relational operators */
+REL_OP    [<>]=|=<>|>=|<=|==|!=]
+
+/* Define the word pattern */
+WORD      [a-zA-Z]+
+
+%%
+{WORD}    { printf("Word: %s\n", yytext); }
+{REL_OP}  { printf("Relational Operator: %s\n", yytext); }
+.         { /* ignore other characters */ }
+%%
